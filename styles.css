@@ -1,0 +1,229 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, rgba(255, 69, 0, 0.8), rgba(255, 165, 0, 0.8));
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.navbar {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background: linear-gradient(135deg, rgba(255, 69, 0, 0.8), rgba(255, 165, 0, 0.8)); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.tab-button {
+    background: linear-gradient(135deg, rgba(255, 69, 0, 0.8), rgba(255, 165, 0, 0.8)); 
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+
+.tab-button:hover {
+    background: linear-gradient(135deg, rgba(255, 69, 0, 0.9), rgba(255, 165, 0, 0.9));
+    transform: scale(1.05);
+}
+
+.tab-button.active {
+    background: linear-gradient(135deg, rgba(255, 69, 0, 1), rgba(255, 165, 0, 1)); 
+    color: #fff; 
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1001;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    animation: fadeInModal 0.5s ease-out;
+}
+
+.modal-content {
+    background: linear-gradient(to right, #ff4b1f, #ff9068);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    animation: slideInModal 0.5s ease-out;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.modal-content ul li {
+    margin: 10px 0;
+}
+
+.modal-content ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.modal-content ul li a:hover {
+    color: #ff9068;
+}
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    width: 70px;
+    height: auto;
+    transition: all 0.3s ease;
+}
+
+.close-button img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.close-button:hover img {
+    transform: scale(1.1);
+}
+@keyframes fadeInModal {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInModal {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.container {
+    margin-top: 120px;
+    background: linear-gradient(to bottom, rgba(255, 72, 0, 0.9), rgba(255, 150, 80, 0.8), rgba(255, 215, 130, 0.8)); 
+    border-radius: 20px;
+    padding: 40px 50px;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(14px); 
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    max-width: 1000px;
+    width: 90%;
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 500px;
+    transition: background 0.3s ease; 
+}
+
+
+.languages {
+    margin-top: 20px;
+}
+
+.languages span {
+    display: inline-block;
+    margin: 10px 15px;
+    font-weight: bold;
+    color: #ffecec;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.languages span:hover {
+    transform: scale(1.2);
+}
+
+.languages i {
+    margin-right: 6px;
+}
+
+#contactButton {
+    margin-top: 20px;
+    padding: 14px 28px;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+}
+
+#contactButton:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+}
+.background-image {
+    position: absolute;
+    top: 0;
+    height: 85%;
+    width: auto;
+    max-width: 50%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 1; 
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.background-image.left {
+    left: -30%;
+    right: auto;
+    transform: translateX(131%);
+}
+
+.background-image.right {
+    right: -30%;
+    left: auto;
+    transform: translateX(-131%);
+}
+
+.background-image.visible {
+    opacity: 1;
+    transform: translateX(0);
+}

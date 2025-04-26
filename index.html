@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="navbar">
+        <button class="tab-button active" data-tab="home">Home</button>
+        <button class="tab-button" data-tab="about">About Me</button>
+    </div>
+
+    <div class="container">
+        <div class="tab-content" id="home">
+            <h1>Welcome!</h1>
+            <p>Hello, My name is Ciel</p>
+            <div class="languages">
+                <span><i class="fas fa-code"></i> C</span>
+                <span><i class="fas fa-code"></i> C++</span>
+                <span><i class="fas fa-code"></i> C#</span>
+                <span><i class="fas fa-code"></i> Lua</span>
+                <span><i class="fab fa-python"></i> Python</span>
+                <span><i class="fas fa-microchip"></i> CASM</span>
+            </div>
+            <button id="contactButton">Contact Me</button>
+        </div>
+        <div class="tab-content" id="about" style="display: none;">
+            <h1>About Me</h1>
+            <p>I'm a Software Engineer and Reverse Engineer.</p>
+            <p>I'm good with C, C++ and Lua</p>
+        </div>
+    </div>
+    <img src="HomeBackGroundSticker.png" alt="Tab Background" class="background-image" id="backgroundImage">
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close-button">
+                <img src="CloseImage.png" alt="Close">
+            </span>
+            <h2>Contact</h2>
+            <p>Find me on these platforms:</p>
+            <ul>
+                <li><a href="https://discord.com/users/1250431140607557702" target="_blank">Discord Profile</a></li>
+                <li><a href="https://github.com/0xCiel" target="_blank">GitHub</a></li>
+                <li><a href="https://discord.gg/cielbasement" target="_blank">Discord Server</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('contactButton').addEventListener('click', function () {
+            document.getElementById('contactModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+        document.getElementById('closeModal').addEventListener('click', function () {
+            document.getElementById('contactModal').style.display = 'none';
+            document.body.style.overflow = 'auto'; 
+        });
+
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const backgroundImage = document.getElementById('backgroundImage');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.style.display = 'none');
+
+                button.classList.add('active');
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).style.display = 'block';
+                if (tabId === "home") {
+                    backgroundImage.src = "HomeBackGroundSticker.png";
+                    backgroundImage.classList.remove("right");
+                    backgroundImage.classList.add("left");
+                } else if (tabId === "about") {
+                    backgroundImage.src = "AboutMeSticker.png";
+                    backgroundImage.classList.remove("left");
+                    backgroundImage.classList.add("right");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
